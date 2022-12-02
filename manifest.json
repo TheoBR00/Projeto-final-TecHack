@@ -1,0 +1,34 @@
+{
+    "manifest_version": 2,
+    "name": "Borderify",
+    "version": "2.0",
+    "permissions": ["cookies", "<all_urls>", "tabs", "storage", "notifications", "browsingData"],
+
+
+    "description": "Adiciona uma borda vermelha a todas as páginas da Web correspondentes a mozilla.org.",
+
+    "icons": {
+        "48": "icons/border-48.png"
+    },
+
+    "browser_action": {
+        "browser_style": true,
+        "default_title": "Lista os cookies",
+        "default_popup": "list_cookies.html",
+        "default_icon": "icons/border-48.png"
+    },
+
+    "content_scripts": [
+        {
+            "matches": ["https://*.mozilla.org/*"],
+            "js": ["list_cookies.js"]
+        }
+    ],
+
+    "applications": {
+        "gecko": {
+            "id": "borderify@example.com"
+        }
+    }
+
+}
